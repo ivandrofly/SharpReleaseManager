@@ -47,23 +47,18 @@ namespace ReleaseNameManager
                 listViewSubfiles.Groups.Add(listViewGroup);
                 foreach (string release in kvp.Value)
                 {
-                    var lvi = new ListViewItem(string.Empty) { Checked = true };
-                    lvi.SubItems.Add(release);
-                    lvi.Group = listViewGroup;
-                    listViewSubfiles.Items.Add(lvi);
+                    AddToListView(release, listViewGroup);
                 }
-                //_listViewGroup.Contains()
-                //if(_listViewGroups.Contains()
-                //AddToListView(releaseName);
             }
             listViewSubfiles.EndUpdate();
         }
 
-        private void AddToListView(string fileName)
+        private void AddToListView(string releaseName, ListViewGroup group)
         {
-            var listViewItem = new ListViewItem() { Checked = true };
-            listViewItem.SubItems.Add(fileName);
-            listViewSubfiles.Items.Add(listViewItem);
+            var lvi = new ListViewItem() { Checked = true };
+            lvi.SubItems.Add(releaseName);
+            lvi.Group = group;
+            listViewSubfiles.Items.Add(lvi);
         }
 
     }
